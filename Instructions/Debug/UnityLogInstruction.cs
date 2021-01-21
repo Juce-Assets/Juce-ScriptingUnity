@@ -1,19 +1,19 @@
 ﻿namespace Juce.Scripting.Instructions
 {
-    public class UnityLogStringInstruction : FlowScriptInstruction
+    public class UnityLogInstruction : FlowScriptInstruction
     {
         public const string ValueIn = nameof(ValueIn);
 
         public override void RegisterPorts()
         {
-            AddInputPort<string>(ValueIn);
+            AddInputPort<object>(ValueIn);
         }
 
         protected override void Execute()
         {
-            string value = GetInputPortValue<string>(ValueIn);
+            object value = GetInputPortValue<object>(ValueIn);
 
-            UnityEngine.Debug.Log(value);
+            UnityEngine.Debug.Log(value.ToString());
         }
     }
 }
