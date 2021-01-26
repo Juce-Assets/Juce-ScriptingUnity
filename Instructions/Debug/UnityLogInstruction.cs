@@ -9,7 +9,7 @@
             AddInputPort<object>(ValueIn);
         }
 
-        protected override void Execute()
+        protected override void Execute(Script script)
         {
             object value = GetInputPortValue<object>(ValueIn);
 
