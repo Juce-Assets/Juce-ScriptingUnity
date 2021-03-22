@@ -1,4 +1,6 @@
-﻿namespace Juce.Scripting.Instructions
+﻿using Juce.Scripting.Loging;
+
+namespace Juce.Scripting.Instructions
 {
     public class UnityLogInstruction : FlowInstruction
     {
@@ -9,7 +11,7 @@
             AddInputPort<object>(ValueIn);
         }
 
-        protected override void Execute(Script script)
+        protected override void Execute(Script script, IScriptLogger scriptLogger)
         {
             object value = GetInputPortValue<object>(ValueIn);
 
