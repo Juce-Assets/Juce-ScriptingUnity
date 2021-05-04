@@ -1,8 +1,6 @@
-﻿using Juce.Scripting.Loging;
-
-namespace Juce.Scripting.Instructions
+﻿namespace Juce.Scripting.Instructions
 {
-    public class UnityLogInstruction : FlowInstruction
+    public class UnityLogInstruction : SyncFlowInstruction
     {
         public const string ValueIn = nameof(ValueIn);
 
@@ -11,7 +9,7 @@ namespace Juce.Scripting.Instructions
             AddInputPort<object>(ValueIn);
         }
 
-        protected override void Execute(Script script, IScriptLogger scriptLogger)
+        protected override void SyncExecute(ScriptingContext scriptingContext)
         {
             object value = GetInputPortValue<object>(ValueIn);
 
